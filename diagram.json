@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "author": "Monitor ambiental ESP32",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": -14.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -105.3,
+      "left": 263.4,
+      "attrs": { "temperature": "25", "humidity": "50" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -83.26,
+      "left": 125.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVerde",
+      "top": 198,
+      "left": 186.2,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVermelho",
+      "top": 198,
+      "left": 253.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 196.8,
+      "left": 220.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 196.8,
+      "left": 287.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht1:VCC", "red", [ "h-19.5", "v-67.2", "h220.8" ] ],
+    [ "esp:GND.1", "dht1:GND", "black", [ "h9.3", "v115.1", "h220.8" ] ],
+    [ "esp:D15", "dht1:SDA", "green", [ "v-0.2", "h210.8" ] ],
+    [ "esp:3V3", "oled1:VCC", "red", [ "h-19.5", "v-268.8", "h95.85" ] ],
+    [ "esp:GND.1", "oled1:GND", "black", [ "h9.3", "v-249.7", "h67.2" ] ],
+    [ "esp:D21", "oled1:SDA", "blue", [ "h-38.7", "v-192.4", "h134.33" ] ],
+    [ "esp:D22", "oled1:SCL", "yellow", [ "h-29.1", "v-153.9", "h114.9" ] ],
+    [ "esp:D18", "r1:1", "green", [ "h162.9" ] ],
+    [ "r1:2", "ledVerde:A", "green", [ "v104.4" ] ],
+    [ "ledVerde:C", "esp:GND.1", "black", [ "v9.6", "h-105.2", "v-95.9" ] ],
+    [ "esp:D19", "r2:1", "red", [ "h0" ] ],
+    [ "r2:2", "ledVermelho:A", "red", [ "v18" ] ],
+    [ "ledVermelho:C", "esp:GND.1", "black", [ "v19.2", "h-172.4", "v-105.5" ] ]
+  ],
+  "dependencies": {}
+}
