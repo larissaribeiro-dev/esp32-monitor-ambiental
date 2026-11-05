@@ -1,0 +1,15 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Arquivos de compilação e temporários
+build/
+*.elf
+*.bin
+*.tmp
+*.log
